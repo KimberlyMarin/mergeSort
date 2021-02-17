@@ -65,7 +65,7 @@ public class MergeSort {
             arr[k] = leftArray[i];
             i++;
             k++;
-            countArray[k] = new int [i];
+            countArray = arr;
         }
 //Copiar los elementos restantes de rightArray[].
         while (j < n2) {
