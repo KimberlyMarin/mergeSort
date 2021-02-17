@@ -1,4 +1,8 @@
-import ptolemy . plot . * ;
+import static org.math.array.DoubleArray.increment;
+
+import javax.swing.JFrame;
+import org.math.plot.Plot2DPanel;
+
 public class MergeSort {
     int countArray ;
     public void sort(int arr[], int left, int right){
@@ -77,19 +81,22 @@ public class MergeSort {
         System.out.println();
     }
 
-    public void graficMergeSort(int arr[]) {
+    public void graficMergeSort() {
 
-        System.out.println(arr + "Original ");
-            System.out.println("count"+ countArray + "cantidad de veces ");
+        double[] x = increment(0.0, 0.1, 1.0); // x = 0.0:0.1:1.0
+        double[] y = increment(0.0, 0.05, 1.0);
 
-        Plot plotObj = new Plot () ;
-                // setting data
-                        series(null, Plot.data().
-                        xy(1, 2).
-                        xy(3, 4), null);
+        // create your PlotPanel (you can use it as a JPanel)
+        Plot2DPanel plot = new Plot2DPanel();
+        plot.addLegend("SOUTH");
+        // add a line plot to the PlotPanel
+        plot.addLinePlot("Using ", x, y);
 
-// saving sample_minimal.png
-        plot.save("sample_minimal", "png");
+        // put the PlotPanel in a JFrame, as a JPanel
+        JFrame frame = new JFrame("a plot panel");
+        frame.setContentPane(plot);
+        frame.setVisible(true);
+
     }
 
 }

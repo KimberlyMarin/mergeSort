@@ -30,7 +30,7 @@ public class Main {
         }
         System.out.println("Listado Aleatorio");
         mergeSort.printArray(arrAleatory);
-        mergeSort.graficMergeSort(arrAleatory);
+        mergeSort.graficMergeSort();
 
         System.out.println("Generar Grafica Random");
        /// mergeSort.sort(arrAleatory,0,n-1);
