@@ -94,7 +94,7 @@ public class MergeSort {
         // add the histogram (50 slices) of y to the PlotPanel in GREEN
        // plot.addHistogramPlot("Uniform population", Color.RED, y, 50);
         // add a line plot to the PlotPanel
-        plot.addLinePlot("Using ", x, y);
+        plot.addLinePlot("Comparacion datos ", x, y);
 
         // put the PlotPanel in a JFrame, as a JPanel
         JFrame frame = new JFrame("a plot panel");
