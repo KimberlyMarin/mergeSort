@@ -1,15 +1,13 @@
-
+import ptolemy . plot . * ;
 public class MergeSort {
-
+    int countArray ;
     public void sort(int arr[], int left, int right){
         if(left < right){
             //Encuentra el punto medio del vector.
             int middle = (left + right) / 2;
-
             //Divide la primera y segunda mitad (llamada recursiva).
             sort(arr, left, middle);
             sort(arr, middle +1, right);
-
             //Une las mitades.
             merge(arr, left, middle, right);
         }
@@ -27,6 +25,8 @@ public class MergeSort {
         //Copia los datos a los arrays temporales.
         for (int i=0; i < n1; i++) {
             leftArray[i] = arr[left+i];
+
+
         }
         for (int j=0; j < n2; j++) {
             rightArray[j] = arr[middle + j + 1];
@@ -44,11 +44,13 @@ public class MergeSort {
             if (leftArray[i] <= rightArray[j]) {
                 arr[k] = leftArray[i];
                 i++;
+                //countArray = i;
             } else {
                 arr[k] = rightArray[j];
                 j++;
             }
             k++;
+
         }//Fin del while.
 
         /* Si quedan elementos por ordenar */
@@ -57,6 +59,7 @@ public class MergeSort {
             arr[k] = leftArray[i];
             i++;
             k++;
+            countArray = k;
         }
 //Copiar los elementos restantes de rightArray[].
         while (j < n2) {
@@ -69,8 +72,24 @@ public class MergeSort {
     public void printArray(int arr[]) {
         int n = arr.length;
         for (int i=0; i<n; ++i) {
-            System.out.println(arr[i] + " ");
+            System.out.println(arr[i] + "Original ");
         }
         System.out.println();
     }
+
+    public void graficMergeSort(int arr[]) {
+
+        System.out.println(arr + "Original ");
+            System.out.println("count"+ countArray + "cantidad de veces ");
+
+        Plot plotObj = new Plot () ;
+                // setting data
+                        series(null, Plot.data().
+                        xy(1, 2).
+                        xy(3, 4), null);
+
+// saving sample_minimal.png
+        plot.save("sample_minimal", "png");
+    }
+
 }
