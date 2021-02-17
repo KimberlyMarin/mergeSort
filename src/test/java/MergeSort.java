@@ -1,12 +1,12 @@
 import static org.math.array.DoubleArray.increment;
 
-import java.awt.Color;
 import java.awt.Dimension;
+import java.util.Arrays;
 import javax.swing.JFrame;
 import org.math.plot.Plot2DPanel;
 
 public class MergeSort {
-    int countArray ;
+    int[] countArray ;
     public void sort(int arr[], int left, int right){
         if(left < right){
             //Encuentra el punto medio del vector.
@@ -65,7 +65,7 @@ public class MergeSort {
             arr[k] = leftArray[i];
             i++;
             k++;
-            countArray = k;
+            countArray[k] = new int [i];
         }
 //Copiar los elementos restantes de rightArray[].
         while (j < n2) {
@@ -83,10 +83,10 @@ public class MergeSort {
         System.out.println();
     }
 
-    public void graficMergeSort() {
+    public void graficMergeSort(int[] arra) {
 
-        double[] x = increment(0.0, 0.1, 1.0); // x = 0.0:0.1:1.0
-        double[] y = increment(0.0, 0.05, 1.0);
+        double[] x = Arrays.stream(countArray).asDoubleStream().toArray();;// x = 0.0:0.1:1.0
+        double[] y = Arrays.stream(arra).asDoubleStream().toArray();
 
         Plot2DPanel plot = new Plot2DPanel();
         plot.addLegend("SOUTH");
