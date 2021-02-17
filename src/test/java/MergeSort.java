@@ -1,5 +1,7 @@
 import static org.math.array.DoubleArray.increment;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.JFrame;
 import org.math.plot.Plot2DPanel;
 
@@ -86,14 +88,19 @@ public class MergeSort {
         double[] x = increment(0.0, 0.1, 1.0); // x = 0.0:0.1:1.0
         double[] y = increment(0.0, 0.05, 1.0);
 
-        // create your PlotPanel (you can use it as a JPanel)
         Plot2DPanel plot = new Plot2DPanel();
         plot.addLegend("SOUTH");
+        /*sirve esta parte para agregar colores*/
+        // add the histogram (50 slices) of y to the PlotPanel in GREEN
+       // plot.addHistogramPlot("Uniform population", Color.RED, y, 50);
         // add a line plot to the PlotPanel
         plot.addLinePlot("Using ", x, y);
 
         // put the PlotPanel in a JFrame, as a JPanel
         JFrame frame = new JFrame("a plot panel");
+        /*sirve esta parte para definir el tamaño de la ventana que se abrira*/
+        frame.setSize(new Dimension(300, 300));
+        frame.setMinimumSize(new Dimension(200, 200));
         frame.setContentPane(plot);
         frame.setVisible(true);
 
